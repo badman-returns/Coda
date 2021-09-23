@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+import { Switch, Route } from 'react-router-dom';
+import Login from './pages/Login/Login';
+import {  makeStyles } from '@material-ui/core';
 import './App.css';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+      minHeight: '100vh',
+      width: '100%',
+      backgroundColor: '#fff',
+      // backgroundImage: `url(${process.env.PUBLIC_URL + 'background.jpg'})`,
+      backgroundImage: 'linear-gradient(360deg, rgba(244,241,246,1) 4%, rgba(203,29,164,1) 85%)',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      zIndex: -1,
+      opacity: 0.8
+  }
+}));
+
 function App() {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Switch>
+        <Route path="/">
+          <div className={classes.root}>
+            <Login />
+          </div>
+        </Route>
+      </Switch>
     </div>
   );
 }
