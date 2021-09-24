@@ -7,6 +7,7 @@ import {
     Card,
     Typography
 } from '@material-ui/core';
+import { authURL } from '../../services/spotify.api.service'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -57,20 +58,22 @@ function Login() {
     return (
         <div className={classes.root}>
             <CssBaseline />
-                <div className={classes.paper}>
-                    <Card className={classes.card} elevation={0}>
-                        <Grid container direction='column' justifyContent="center" alignItems="center">
-                            <img src={`${process.env.PUBLIC_URL + 'logo.png'}`} alt="logo" />
+            <div className={classes.paper}>
+                <Card className={classes.card} elevation={0}>
+                    <Grid container direction='column' justifyContent="center" alignItems="center">
+                        <img src={`${process.env.PUBLIC_URL + 'logo.png'}`} alt="logo" />
+                        <a href={authURL}>
                             <Button variant="contained" className={classes.button}>
                                 <Grid container alignItems="center" spacing={2}>
                                     <img className={classes.buttonImg} src={`${process.env.PUBLIC_URL + 'spotify.png'}`} alt="spotify" />
                                     <Typography variant="h6" >Login with Spotify</Typography>
                                 </Grid>
                             </Button>
-                            <Typography variant="subtitle1" className={classes.subtitle}>Made withn 💖 by T S Goswami</Typography>
-                        </Grid>
-                    </Card>
-                </div>
+                        </a>
+                        <Typography variant="subtitle1" className={classes.subtitle}>Made withn 💖 by T S Goswami</Typography>
+                    </Grid>
+                </Card>
+            </div>
         </div >
     )
 }
